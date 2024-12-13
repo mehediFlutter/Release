@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "543927041316",
+    "project_id": "click4details-ffedd",
+    "storage_bucket": "click4details-ffedd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543927041316:android:7e8173eeed39b8ded187b1",
+        "android_client_info": {
+          "package_name": "com.pilotbazar.click4details"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpblduhI1CaFxI8FChWJO-2GxOhpMx0wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
