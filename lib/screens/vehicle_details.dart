@@ -9,6 +9,7 @@ import 'package:release/const/path.dart';
 import 'package:release/widget/urls.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../connectivity_services/connectivity_services.dart';
 import '../const/const_radio.dart';
 import '../widget/vehicle_details_banner.dart';
 
@@ -103,6 +104,7 @@ class _VehicleDetailsState extends State<VehicleDetails> {
   @override
   initState() {
     super.initState();
+    ConnectivityService().monitorConnectivity(context);
 
     specialFeatures();
 

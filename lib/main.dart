@@ -12,12 +12,10 @@ import 'package:ua_client_hints/ua_client_hints.dart';
 
 import 'screens/auth/new_login_screen/device_info.dart';
 
-
 void main() async {
- WidgetsFlutterBinding.ensureInitialized();
-   await Firebase.initializeApp();
-   await FirebaseDemo().initNotification(); // Make sure Flutter is initialized
-
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await FirebaseDemo().initNotification(); // Make sure Flutter is initialized
 
   final uaData = await userAgentData();
   deviceBrand = uaData.brand;

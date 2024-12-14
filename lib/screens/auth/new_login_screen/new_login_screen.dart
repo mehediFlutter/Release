@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../connectivity_services/connectivity_services.dart';
 import '../../../const/const_radio.dart';
 import '../../../const/role.dart';
 import '../../../firebase/demo.dart';
@@ -32,6 +33,7 @@ class _NewLoginScreenState extends State<NewLoginScreen> {
   @override
   void initState() {
     super.initState();
+    ConnectivityService().monitorConnectivity(context);
     passwordVisible = false;
   }
 
@@ -217,13 +219,15 @@ class _NewLoginScreenState extends State<NewLoginScreen> {
 
                                 await login();
                               },
-                              child: const Text(
-                                "Login",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600),
-                              )),
+                              child: 
+                                   Text(
+                                      "Login",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600),
+                                    )
+                               ),
                         ),
                   height30,
                   Row(

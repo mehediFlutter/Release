@@ -4,7 +4,6 @@ import 'package:url_launcher/url_launcher.dart';
 import '../const/color.dart';
 import '../const/const_radio.dart';
 
-
 class CustomAlertDialog {
   showAlertDialog(BuildContext context, String text, errorText) {
     showDialog(
@@ -150,7 +149,7 @@ class CustomAlertDialog {
               child: Center(
                 child: TextButton(
                   onPressed: () async {
-                 //   SocketManager();
+                    //   SocketManager();
                     Navigator.of(context).pop(); // Close the dialog
                   },
                   child: Text(
@@ -408,6 +407,56 @@ class CustomAlertDialog {
           //     ),
           //   ),
           // ],
+        );
+      },
+    );
+  }
+
+  noInternetDialog(
+      BuildContext context, String text, String ok, Function() onTap) {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          contentPadding: EdgeInsets.zero,
+          buttonPadding: EdgeInsets.zero,
+          shadowColor: Colors.black,
+          backgroundColor: Colors.white,
+          content: Container(
+            padding: const EdgeInsets.only(top: 20, left: 8, right: 8),
+            width: double.infinity,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Center(child: Text(text)),
+                height20,
+                Container(
+                  height: 2,
+                  width: double.infinity,
+                  color: const Color(0xFFE9E9E9),
+                ),
+                InkWell(
+                  onTap: () {
+                    onTap();
+                  },
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        ok,
+                        style: const TextStyle(
+                            fontSize: 16, color: Color(0xFF79747E)),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         );
       },
     );

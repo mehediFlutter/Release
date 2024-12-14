@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../DTO/pbl_shop_dto.dart';
+import '../../connectivity_services/connectivity_services.dart';
 import '../../const/color.dart';
 import '../../const/const_radio.dart';
 import '../../provider/pbl_shop_provider.dart';
@@ -24,11 +25,11 @@ class _PBLShopState extends State<PBLShop> {
   TextEditingController searchController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   bool _isVisible = true;
- // final PusherInstance pusherInstance = PusherInstance();
+  // final PusherInstance pusherInstance = PusherInstance();
 
   bool isSearchVisible = true;
- // var socketMethod = SocketMethod();
- // late var socket = SocketManager().socket;
+  // var socketMethod = SocketMethod();
+  // late var socket = SocketManager().socket;
   SharedPreferences? preferences;
   String searchQuery = '';
 
@@ -46,7 +47,7 @@ class _PBLShopState extends State<PBLShop> {
     final provider = Provider.of<PblShopProvider>(context, listen: false);
 
     // Perform the asynchronous operation
-    await provider.getPBLShop();
+    await provider.getPBLShop(context);
 
     // Update the local list using the captured provider
     pblShopList = provider.getPBLShopList;
@@ -65,6 +66,7 @@ class _PBLShopState extends State<PBLShop> {
   @override
   void initState() {
     super.initState();
+    ConnectivityService().monitorConnectivity(context);
     initialize();
 
     //  fetchPhoneNumberAndPost();

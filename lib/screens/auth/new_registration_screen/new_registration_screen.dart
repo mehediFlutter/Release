@@ -6,6 +6,7 @@ import 'package:release/screens/auth/new_text_fields/new_phone_number_text_field
 import 'package:release/widget/urls.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../connectivity_services/connectivity_services.dart';
 import '../../../const/const_radio.dart';
 import '../../../firebase/demo.dart';
 import '../../bottom_navigation_bar/bottom_navigation_bar.dart';
@@ -154,6 +155,7 @@ class _NewRegistrationScreenState extends State<NewRegistrationScreen> {
   @override
   void initState() {
     super.initState();
+     ConnectivityService().monitorConnectivity(context);
     passwordVisible = false;
     confirmPasswordVisible = false;
   }

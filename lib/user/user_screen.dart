@@ -7,6 +7,7 @@ import 'package:release/const/path.dart';
 import 'package:release/widget/urls.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../connectivity_services/connectivity_services.dart';
 import '../screens/auth/new_login_screen/new_login_screen.dart';
 import '../const/const_radio.dart';
 import '../widget/alert_dialog.dart';
@@ -90,6 +91,7 @@ class _UserScreenState extends State<UserScreen> {
   @override
   void initState() {
     super.initState();
+     ConnectivityService().monitorConnectivity(context);
     printUserInfo();
   }
 
